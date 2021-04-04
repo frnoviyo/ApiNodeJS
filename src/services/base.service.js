@@ -1,14 +1,15 @@
 class BaseService {
   constructor(repository) {
-    this.repsoitory = repository;
+    this.repository = repository;
   }
+
 
   async get(id) {
     if (!id) {
       throwError(400, 'id must be send');
     }
 
-    const currentEntity = await this.repsoitory.get(id);
+    const currentEntity = await this.repository.get(id);
 
     if (!currentEntity) {
       throwError(404, 'entity does not found');
@@ -17,7 +18,7 @@ class BaseService {
   }
 
   async getAll() {
-    return await this.repository.getAll()
+    return await this.repository.getAll();
   }
 
   async create(entity) {
@@ -29,7 +30,7 @@ class BaseService {
       throwError(400, 'id must be send');
     }
 
-    return await this.repsoitory.update(id, entity);
+    return await this.repository.update(id, entity);
   }
 
   async delete(id) {

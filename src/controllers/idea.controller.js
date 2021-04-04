@@ -7,13 +7,13 @@ class IdeaController {
 
   async get(req, res) {
     const { ideaId } = req.params;
-    const idea = _ideaService.get(ideaId);
-    return res.sent(idea);
+    const idea = await _ideaService.get(ideaId);
+    return res.send(idea);
   }
 
   async getAll(req, res) {
-    const ideas = _ideaService.getAll();
-    return res.sent(ideas);
+    const ideas = await _ideaService.getAll();
+    return res.send(ideas);
   }
 
   async create(req, res) {
@@ -25,8 +25,8 @@ class IdeaController {
   async update(req, res) {
     const { body } = req;
     const { ideaId } = req.params;
-    const updatedIdea = _ideaService.update(ideaId, body);
-    return res.sent(updatedIdea);
+    const updatedIdea = await _ideaService.update(ideaId, body);
+    return res.send(updatedIdea);
   }
 
   async delete(req, res) {
@@ -44,13 +44,13 @@ class IdeaController {
   async updatedIdea(req, res) {
     const { ideaId } = req.params;
     const idea = await _ideaService.upvoteIdea(ideaId);
-    return res.sent(idea);
+    return res.send(idea);
   }
 
   async upvoteIdea(req, res) {
     const { ideaId } = req.params;
     const idea = await _ideaService.upvoteIdea(ideaId);
-    return res.sent(idea);
+    return res.send(idea);
   }
 
   async downvoteIdea(req, res) {
