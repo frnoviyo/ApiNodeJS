@@ -9,7 +9,7 @@ class UserService extends BaseService {
     _ideaRepository = IdeaRepsoitory;
   }
 
-  async getIdeaComments(ideaId) {
+  async getIdeasComments(ideaId) {
     if (!ideaId) {
       this.throwError(400, 'ideaId must be sent');
     }
