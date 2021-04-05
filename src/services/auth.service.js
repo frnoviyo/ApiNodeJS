@@ -10,7 +10,7 @@ class AuthService {
     const { username } = user;
     const userExist = await _userService.getUserByUsername(username);
     if (userExist) {
-      throwError(400, 'User already exists');
+      this.throwError(400, 'User already exists');
     }
 
     return await _userService.create(user);
